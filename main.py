@@ -35,10 +35,7 @@ while len(correct_guesses) < 50:
         if not correct_guesses.__contains__(state_answer):
             correct_guesses.append(state_answer)
 
-states_to_study = []
-for state in states_list:
-    if state not in correct_guesses:
-        states_to_study.append(state)
+states_to_study = [state for state in states_list if state not in correct_guesses]
 states_dataframe = pandas.DataFrame(states_to_study)
 states_dataframe.to_csv("states_to_review.csv")
 
